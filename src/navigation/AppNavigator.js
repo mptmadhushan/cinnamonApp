@@ -8,6 +8,8 @@ import PlantUpload from '../screens/PlantUpload';
 import TestChart from '../screens/chart';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 import { View, Text, Image } from 'react-native';
+import Login from '../screens/Login';
+import Register from '../screens/Register';
 // import backimg from '../assets/images/arrow-back-12-512.png';
 const Stack = createStackNavigator();
 // const ActionBarImage = () => {
@@ -71,6 +73,16 @@ function MainStackNavigator() {
           name="Result"
           options={{ headerShown: false }}
           component={Result}
+        />
+          <Stack.Screen
+          name="Login"
+          options={{headerShown: false}}
+          component={Login}
+        />
+        <Stack.Screen
+          name="Register"
+          options={{headerShown: false}}
+          component={Register}
         />
       </Stack.Navigator>
     </NavigationContainer>

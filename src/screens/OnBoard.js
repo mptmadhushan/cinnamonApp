@@ -32,7 +32,7 @@ export default function OnBoard({navigation}) {
         <Text style={styles.title}>"Proident sint ipsum"</Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Home');
+            navigation.navigate('Login');
           }}
           style={styles.btn}>
           <Text style={styles.btnText}>Get started</Text>
