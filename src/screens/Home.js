@@ -18,33 +18,46 @@ export default function Home({navigation}) {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../assets/images/istockphoto-530809978-612x612.jpeg')}>
+      source={require('../assets/cocohome.jpg')}>
       <View
         style={{
           alignItems: 'center',
-          marginTop: SIZES.height * 0.05,
+          marginTop: SIZES.height * 0.04,
           maxHeight: 50,
         }}>
-        <Image
+        {/* <Image
           style={{
             width: 100,
             maxHeight: 50,
             resizeMode: 'contain',
           }}
           source={images.logo}
-        />
-        <Text style={styles.title1}>Cinnamon Diseases</Text>
+        /> */}
       </View>
       <LinearGradient
         colors={['transparent', COLORS.black, COLORS.black]}
         style={styles.overlay}>
+        <Text style={styles.title1}>
+          "Protect your Palms: Uncovering Coconut Diseases to Preserve Your
+          Paradise."
+        </Text>
+
         <View style={styles.rowNorm}>
           <TouchableOpacity
             onPress={() => navigation.navigate('PlantUpload')}
             style={styles.slide1}>
             <View style={styles.centerFlex}>
-              <Icon name="leaf" size={30} color={COLORS.white} />
+              <Icon name="virus" size={30} color={COLORS.white} />
               <Text style={styles.text001}>Take Photo</Text>
+            </View>
+          </TouchableOpacity>
+        </View><View style={styles.rowNorm}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('More')}
+            style={styles.slide1}>
+            <View style={styles.centerFlex}>
+              <Icon name="virus" size={30} color={COLORS.white} />
+              <Text style={styles.text001}>More Details</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -81,14 +94,20 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   overlay: {
-    marginTop: SIZES.height * 0.7,
-    height: SIZES.height * 0.3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: SIZES.height * 0.6,
+    height: SIZES.height * 0.35,
     // alignItems: 'center',
   },
   title1: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    // marginTop: SIZES.height * 0.1,
     color: COLORS.white,
+    textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 40,
+    fontSize: 20,
   },
   rowNorm: {
     flexDirection: 'row',

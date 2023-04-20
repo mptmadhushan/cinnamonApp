@@ -17,6 +17,7 @@ import {
   KeyboardAvoidingView,
   Button,
 } from 'react-native';
+import firebase from '../helpers/firebase';
 
 import Toast from 'react-native-simple-toast';
 import {images, SIZES, COLORS, FONTS} from '../helpers';
@@ -46,47 +47,30 @@ const LoginScreen = ({navigation}) => {
   const onPressLogin = () => {
     const username = email;
     const password = userPasswor;
-    navigation.navigate('Home');
+    // navigation.navigate('Home');
     // const payload = {password, username};
-    // console.log('send data', payload);
-    // if (!username) {
-    //   Toast.showWithGravity('Please enter username', Toast.LONG, Toast.TOP);
-    // }
-    // if (!password) {
-    //   Toast.showWithGravity('Please enter password', Toast.LONG, Toast.TOP);
-    // } else {
-    //   const onSuccess = ({data}) => {
-    //     console.log('logged in', data);
-
-    //     setLoading(false);
-    //     storeData(data);
-    //   };
-
-    //   const onFailure = error => {
-    //     if (error.response) {
-    //       console.log(error.response.data);
-    //       Toast.showWithGravity(
-    //         error.response.data.message,
-    //         Toast.LONG,
-    //         Toast.TOP,
-    //       );
-
-    //       // console.log(error.response.status);
-    //       // console.log(error.response.headers);
-    //     }
-    //     // this.setState({errors: error.response.data, isLoading: false});
-    //   };
-
-    //   // Show spinner when call is made
-    //   setLoading(true);
-
-    //   APIKit.post('/auth/jwt/create', payload).then(onSuccess).catch(onFailure);
-    // }
+    console.log('send data', username,password);
+    if (!username) {
+      Toast.showWithGravity('Please enter username', Toast.LONG, Toast.TOP);
+    }
+    if (!password) {
+      Toast.showWithGravity('Please enter password', Toast.LONG, Toast.TOP);
+    } else {
+      firebase
+      .auth()
+      .signInWithEmailAndPassword(username, password)
+      .then((res) => {
+    navigation.navigate('Home');
+     
+        console.log('User registered successfully!')
+        
+        })
+    }
   };
   return (
     <ImageBackground
       style={styles.mainBody}
-      source={require('../assets/images/res.jpg')}>
+      source={require('../assets/logcoco.jpeg')}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -237,7 +221,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     flex: 1,
-    color: COLORS.primary,
+    color: COLORS.white,
     paddingLeft: 15,
     paddingRight: 15,
     borderColor: COLORS.white,

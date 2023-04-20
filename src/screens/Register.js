@@ -18,6 +18,9 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
+import firebase from '../helpers/firebase';
+import Toast from 'react-native-simple-toast';
+
 import {icons, images, SIZES, COLORS, FONTS} from '../helpers';
 // import auth from '@react-native-firebase/auth';
 const RegisterScreen = ({navigation}) => {
@@ -26,23 +29,24 @@ const RegisterScreen = ({navigation}) => {
   const [error, setError] = useState('');
   const [isValid, setValid] = useState(false);
   const __doSignUp = () => {
-    navigation.navigate('Login');
-    // const emailRegex = /^[^@ ]+@[^@ ]+\.[^@ ]+$/;
-    // const __isValidEmail = emailRegex.test(email);
-    // if (!email) {
-    //   setError('Email required *');
-    //   setValid(true);
-    //   return;
-    // } else if (!password && password.trim() && password.length > 6) {
-    //   setError('Weak password, minimum 5 chars');
-    //   setValid(true);
-    //   return;
-    // } else if (!__isValidEmail) {
-    //   setError('Invalid Email');
-    //   setValid(true);
-    //   return;
-    // }
-    // __doCreateUser(email, password);
+
+    console.log('send data', email,password);
+    if (!email) {
+      Toast.showWithGravity('Please enter username', Toast.LONG, Toast.TOP);
+    }
+    if (!password) {
+      Toast.showWithGravity('Please enter password', Toast.LONG, Toast.TOP);
+    } else {
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(email,password)
+      .then((res) => {
+    navigation.navigate('Home');
+     
+        console.log('User registered successfully!')
+        
+        })
+    }
   };
 
   const __doCreateUser = async (email, password) => {
@@ -65,7 +69,7 @@ const RegisterScreen = ({navigation}) => {
   return (
     <ImageBackground
       style={styles.mainBody}
-      source={require('../assets/images/res.jpg')}>
+      source={require('../assets/bogomil-mihaylov-EPdCJtYPrPE-unsplash.jpg')}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{

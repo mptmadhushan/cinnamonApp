@@ -174,8 +174,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   rowFlex: {
-    // marginTop: SIZES.height * 0.1,
-    flexDirection: 'row',
+    height: SIZES.height * 0.1,
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
     alignContent: 'center',
@@ -208,6 +208,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 5,
     width: SIZES.width * 0.4,
-    maxHeight: SIZES.width * 0.1,
+    height: SIZES.width * 0.1,
   },
 });

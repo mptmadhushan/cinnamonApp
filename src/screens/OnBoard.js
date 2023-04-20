@@ -15,9 +15,9 @@ export default function OnBoard({navigation}) {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../assets/images/cinBg.jpg')}>
+      source={require('../assets/cocoOnb.jpg')}>
       <LinearGradient
-        colors={['transparent', COLORS.primary]}
+        colors={[COLORS.primary, 'transparent']}
         style={styles.overlay}>
         <Image
           style={{
@@ -28,8 +28,11 @@ export default function OnBoard({navigation}) {
           }}
           source={images}
         />
-        <Text style={styles.title2}>Ut est commodo ad dolore commodo.</Text>
-        <Text style={styles.title}>"Proident sint ipsum"</Text>
+        <Text style={styles.title2}>
+          "Nature's towering gift: the versatile coconut tree, providing
+          nourishment, shelter, and tropical vibes."
+        </Text>
+        {/* <Text style={styles.titl/e}>"Proident sint ipsum"</Text> */}
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Login');
@@ -47,18 +50,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   overlay: {
-    marginTop: SIZES.height * 0.4,
+    // marginTop: SIZES.height ,
     // backgroundColor: 'rgba(255,0,0,0.5)',
-    height: SIZES.height * 0.6,
+    height: SIZES.height * 0.7,
     alignItems: 'center',
   },
   btn: {
     backgroundColor: COLORS.third,
     height: 40,
-    width: 100,
+    width: 130,
     borderRadius: 20,
     margin: 10,
-    marginTop: 20,
+    marginTop: SIZES.height * 0.45,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: COLORS.third,
@@ -72,6 +75,8 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: COLORS.white,
+    fontSize: 20,
+    fontWeight:'bold'
   },
   title: {
     color: COLORS.secondary,
@@ -81,7 +86,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title2: {
-    marginTop: SIZES.height * 0.02,
+    marginTop: SIZES.height * 0.01,
     color: COLORS.white,
     fontWeight: 'bold',
     fontSize: 30,
