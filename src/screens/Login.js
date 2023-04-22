@@ -44,7 +44,7 @@ const LoginScreen = ({navigation}) => {
       // saving error
     }
   };
-  const onPressLogin = () => {
+   const onPressLogin = () => {
     const username = email;
     const password = userPasswor;
     // navigation.navigate('Home');
@@ -64,13 +64,20 @@ const LoginScreen = ({navigation}) => {
      
         console.log('User registered successfully!')
         
-        })
+        }).catch(function(error) {
+          var errorMessage = error.message;
+
+
+          // Error Handling
+      Toast.showWithGravity(errorMessage, Toast.LONG, Toast.TOP);
+
+     });
     }
   };
   return (
     <ImageBackground
       style={styles.mainBody}
-      source={require('../assets/logcoco.jpeg')}>
+      source={require('../assets/images/login.jpg')}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -80,27 +87,16 @@ const LoginScreen = ({navigation}) => {
           alignItems: 'center',
           alignContent: 'center',
           backgroundColor: 'rgba(0,0,0,0.5)',
-        }}>
+      }}>
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <View style={styles.centerFlex}>
-            <Image
-              source={images.logo}
-              resizeMode="contain"
-              style={{
-                width: SIZES.width * 0.3,
-                height: SIZES.width * 0.3,
-                marginBottom: SIZES.height * 0.1,
-              }}
-            />
-          </View>
-          <View style={styles.rowFlex}>
+          <View style={[styles.rowFlex,{marginTop:SIZES.height * 0.3}]} >
             <View style={styles.SectionStyle}>
               <TextInput
-                label={'user name'}
+                label={'Email'}
                 keyboardType="email-address"
                 style={[isValid ? styles.inputStyleError : styles.inputStyle]}
-                placeholder="User Name"
+                placeholder="Email"
                 placeholderTextColor={COLORS.white}
                 onChangeText={text => {
                   setError;
@@ -221,7 +217,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     flex: 1,
-    color: COLORS.white,
+    color: COLORS.primary,
     paddingLeft: 15,
     paddingRight: 15,
     borderColor: COLORS.white,

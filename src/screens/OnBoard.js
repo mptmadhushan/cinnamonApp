@@ -8,31 +8,25 @@ import {
   Text,
   ImageBackground,
 } from 'react-native';
-import {icons, images, SIZES, COLORS, FONTS} from '../helpers';
-import LinearGradient from 'react-native-linear-gradient';
+import {images, SIZES, COLORS, FONTS} from '../helpers';
 export default function OnBoard({navigation}) {
-  console.log(':hap');
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../assets/cocoOnb.jpg')}>
-      <LinearGradient
-        colors={[COLORS.primary, 'transparent']}
+      source={require('../assets/images/cinBg.jpg')}>
+      <View
         style={styles.overlay}>
         <Image
           style={{
             width: 100,
             maxHeight: 100,
-            marginTop: SIZES.height * 0.2,
+            
             resizeMode: 'contain',
           }}
           source={images}
         />
-        <Text style={styles.title2}>
-          "Nature's towering gift: the versatile coconut tree, providing
-          nourishment, shelter, and tropical vibes."
-        </Text>
-        {/* <Text style={styles.titl/e}>"Proident sint ipsum"</Text> */}
+        <Text style={styles.title2}>Preserving the Sweetness</Text>
+        <Text style={styles.title}>Identifying Cinnamon Diseases to Safeguard Your Spice</Text>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Login');
@@ -40,7 +34,7 @@ export default function OnBoard({navigation}) {
           style={styles.btn}>
           <Text style={styles.btnText}>Get started</Text>
         </TouchableOpacity>
-      </LinearGradient>
+      </View>
     </ImageBackground>
   );
 }
@@ -50,18 +44,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   overlay: {
-    // marginTop: SIZES.height ,
+    marginTop: SIZES.height * 0.4,
     // backgroundColor: 'rgba(255,0,0,0.5)',
-    height: SIZES.height * 0.7,
+    height: SIZES.height * 0.6,
     alignItems: 'center',
   },
   btn: {
-    backgroundColor: COLORS.third,
+    backgroundColor: COLORS.primary,
     height: 40,
-    width: 130,
+    width: 100,
     borderRadius: 20,
     margin: 10,
-    marginTop: SIZES.height * 0.45,
+    marginTop: SIZES.height * 0.3,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: COLORS.third,
@@ -75,8 +69,6 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: COLORS.white,
-    fontSize: 20,
-    fontWeight:'bold'
   },
   title: {
     color: COLORS.secondary,
@@ -86,7 +78,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title2: {
-    marginTop: SIZES.height * 0.01,
+    marginTop: SIZES.height * 0.02,
     color: COLORS.white,
     fontWeight: 'bold',
     fontSize: 30,

@@ -20,7 +20,6 @@ import {
 } from 'react-native';
 import firebase from '../helpers/firebase';
 import Toast from 'react-native-simple-toast';
-
 import {icons, images, SIZES, COLORS, FONTS} from '../helpers';
 // import auth from '@react-native-firebase/auth';
 const RegisterScreen = ({navigation}) => {
@@ -69,7 +68,7 @@ const RegisterScreen = ({navigation}) => {
   return (
     <ImageBackground
       style={styles.mainBody}
-      source={require('../assets/bogomil-mihaylov-EPdCJtYPrPE-unsplash.jpg')}>
+      source={require('../assets/images/result.jpg')}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -99,7 +98,7 @@ const RegisterScreen = ({navigation}) => {
                 label={'Email'}
                 keyboardType="email-address"
                 style={[isValid ? styles.inputStyleError : styles.inputStyle]}
-                placeholder="Mail address"
+                placeholder="Email"
                 placeholderTextColor={COLORS.white}
                 onChangeText={text => {
                   setError;

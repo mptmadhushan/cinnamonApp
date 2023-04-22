@@ -135,8 +135,8 @@ const MainScreen = ({ routes, navigation }) => {
         />
         {/* </View> */}
       </View>
-      <LinearGradient
-        colors={['transparent', COLORS.black, COLORS.third]}
+      <View
+       
         style={styles.overlay}>
         <View style={styles.rowFlex}>
           <TouchableOpacity
@@ -154,7 +154,7 @@ const MainScreen = ({ routes, navigation }) => {
             </View>
           </TouchableOpacity>
         </View>
-      </LinearGradient>
+      </View>
     </View>
   );
 };
@@ -169,13 +169,11 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   overlay: {
-    marginTop: -SIZES.height * 0.2,
-    height: SIZES.height * 0.7,
     flex: 1,
   },
   rowFlex: {
-    height: SIZES.height * 0.1,
-    flexDirection: 'column',
+    // marginTop: SIZES.height * 0.1,
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     alignContent: 'center',
@@ -193,7 +191,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.black,
   },
   slide1: {
-    backgroundColor: COLORS.third,
+    backgroundColor: COLORS.primary,
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -208,6 +206,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 5,
     width: SIZES.width * 0.4,
-    height: SIZES.width * 0.1,
+    maxHeight: SIZES.width * 0.1,
   },
 });

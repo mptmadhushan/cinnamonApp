@@ -9,7 +9,6 @@ import {
 import {icons, images, SIZES, COLORS, FONTS} from '../helpers';
 import LinearGradient from 'react-native-linear-gradient';
 export default function OnBoard({navigation, route}) {
-  // const {resData} = route.params;
   const result = {
     symptoms: [
       '•	Coconut Rhinoceros Beetle (CRB) The Coconut Rhinoceros Beetle (CRB) is a large pest insect that feeds on coconut trees, as well as other palms, fruit trees, and ornamental plants. It is native to Southeast Asia and has been introduced to other parts of the world, including the Pacific Islands and the Middle East. Adult beetles can grow up to 6 centimeters in length, and their larvae are destructive to the root systems of plants, leading to wilting and eventual death. The CRB is considered a significant threat to coconut production and has caused millions of dollars in damage to crops.',
@@ -23,37 +22,27 @@ export default function OnBoard({navigation, route}) {
       ' ut excepteur officia et commodo do.',
     ],
   };
-  // const result = resData.result.detail;
-  // console.log('hello from res', resData);
-  console.log(result);
-  const api = {foo: 'bar', foz: 'baz'};
+
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../assets/cocoOnb.jpg')}>
-      <LinearGradient
-        colors={['transparent', COLORS.primary, COLORS.primary]}
+      source={require('../assets/images/more.jpg')}>
+      <View
+        
         style={styles.overlay}>
-        {/* <Text style={styles.title2}>{result.name}</Text> */}
-        <ScrollView >
-        <View style={{alignItems: 'center', paddingHorizontal: 20}}>
           <Text style={styles.title}>Types of pets attack</Text>
-          {result.symptoms &&
+
+        <ScrollView horizontal >
+        {result.symptoms &&
             result.symptoms.map(list => (
-              <Text style={styles.des} key={list.index}>
+        <View style={{alignItems: 'center', paddingHorizontal: 20}}>
+        
+              <Text style={styles.des} key={list}>
                 {list}
               </Text>
-            ))}
-          {/* <Text style={styles.title}>Solutions</Text> */}
-          {/* 
-          {result.solutions &&
-            result.solutions.map(list => ( */}
-          {/* <Text style={styles.des}>
-            Overall, incorporating coconut into your diet and beauty routine can
-            have many health and beauty benefits.
-          </Text> */}
-          {/* // ))} */}
+
         </View>
+            ))}
 
 
         </ScrollView>
@@ -64,7 +53,7 @@ export default function OnBoard({navigation, route}) {
           style={styles.btn}>
           <Text style={styles.btnText}>Home</Text>
         </TouchableOpacity>
-      </LinearGradient>
+      </View>
     </ImageBackground>
   );
 }
@@ -74,8 +63,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   overlay: {
-    marginTop: SIZES.height * 0.2,
-    height: SIZES.height * 0.78,
+    marginTop: SIZES.height * 0.1,
+    height: SIZES.height * 0.85,
     alignItems: 'center',
   },
   btn: {
@@ -101,30 +90,29 @@ const styles = StyleSheet.create({
     color: COLORS.white,
   },
   title: {
-    color: COLORS.black,
-    fontSize: 30,
+    color: COLORS.white,
+    fontSize: 40,
     textAlign: 'center',
     paddingHorizontal: 20,
     fontWeight: 'bold',
   },
   des: {
     color: COLORS.black,
-    fontSize: 15,
+    padding:20,
+    margin:20,
+    fontSize: 17,
     textAlign: 'center',
     paddingHorizontal: 20,
     borderRadius: 50,
     margin: 5,
     padding: 5,
     fontWeight: 'bold',
+    height:SIZES.height * 0.6,
+    width:SIZES.width  *0.8,
+    marginLeft:SIZES.width  *0.05,
+    marginTop:40,
     marginTop: 10,
     backgroundColor: 'white',
   },
-  title2: {
-    // marginTop: SIZES.height * 0.1,
-    color: COLORS.white,
-    fontWeight: 'bold',
-    fontSize: 30,
-    textAlign: 'center',
-    marginBottom: 10,
-  },
+
 });

@@ -12,13 +12,10 @@ export default function OnBoard({navigation, route}) {
   // const {resData} = route.params;
   const result = {
     symptoms: [
-      '1. Nutritious',
-      '2. Hydrating',
-      '3. Boosts Immunity',
-      '4. Promotes Digestion',
-      '5. Great for Skin and Hair',
-      '6. Supports Heart Health',
-      '7. Promotes Weight Loss',
+      'Aliqua do do laboris ullamco amet',
+      'Sint irure ad mollit irure ',
+      'qui enim officia duis sunt veniam ',
+      'cillum commodo exercitation',
     ],
     solutions: [
       'Aute dolore consectetur dolore',
@@ -32,28 +29,27 @@ export default function OnBoard({navigation, route}) {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../assets/cocoOnb.jpg')}>
-      <LinearGradient
-        colors={['transparent', COLORS.primary, COLORS.primary]}
+      source={require('../assets/images/result.jpg')}>
+      <View
         style={styles.overlay}>
-        {/* <Text style={styles.title2}>{result.name}</Text> */}
-        <View style={{alignItems: 'center', paddingHorizontal: 20}}>
-          <Text style={styles.title}>Coconuts have numerous benefits</Text>
+        <Text style={styles.title2}>{result.name}</Text>
+        <View
+          style={{marginTop: 20, alignItems: 'center', paddingHorizontal: 20}}>
+          <Text style={styles.title}>Symptoms</Text>
           {result.symptoms &&
             result.symptoms.map(list => (
               <Text style={styles.des} key={list.index}>
-                {list}
+                ⦿{list}
               </Text>
             ))}
-          {/* <Text style={styles.title}>Solutions</Text> */}
-          {/* 
+          <Text style={styles.title}>Solutions</Text>
+
           {result.solutions &&
-            result.solutions.map(list => ( */}
-          <Text style={styles.des}>
-            Overall, incorporating coconut into your diet and beauty routine can
-            have many health and beauty benefits.
-          </Text>
-          {/* // ))} */}
+            result.solutions.map(list => (
+              <Text style={styles.des} key={list.index}>
+                ⦿{list}
+              </Text>
+            ))}
         </View>
 
         <TouchableOpacity
@@ -63,7 +59,7 @@ export default function OnBoard({navigation, route}) {
           style={styles.btn}>
           <Text style={styles.btnText}>Home</Text>
         </TouchableOpacity>
-      </LinearGradient>
+      </View>
     </ImageBackground>
   );
 }
@@ -73,12 +69,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   overlay: {
-    marginTop: SIZES.height * 0.2,
-    height: SIZES.height * 0.8,
+    marginTop: SIZES.height * 0.3,
+    height: SIZES.height * 0.7,
     alignItems: 'center',
   },
   btn: {
-    backgroundColor: COLORS.third,
+    backgroundColor: COLORS.primary,
     height: 40,
     width: 100,
     borderRadius: 20,
@@ -99,26 +95,22 @@ const styles = StyleSheet.create({
     color: COLORS.white,
   },
   title: {
-    color: COLORS.white,
-    fontSize: 30,
+    color: COLORS.secondary,
+    fontSize: 20,
     textAlign: 'center',
     paddingHorizontal: 20,
     fontWeight: 'bold',
   },
   des: {
-    color: COLORS.black,
+    color: COLORS.white,
     fontSize: 15,
     textAlign: 'center',
     paddingHorizontal: 20,
-    borderRadius: 50,
-    margin: 5,
-    padding: 5,
     fontWeight: 'bold',
     marginTop: 10,
-    backgroundColor: 'white',
   },
   title2: {
-    // marginTop: SIZES.height * 0.1,
+    marginTop: SIZES.height * 0.1,
     color: COLORS.white,
     fontWeight: 'bold',
     fontSize: 30,

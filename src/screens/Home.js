@@ -18,50 +18,44 @@ export default function Home({navigation}) {
   return (
     <ImageBackground
       style={styles.container}
-      source={require('../assets/cocohome.jpg')}>
+      source={require('../assets/images/home.jpg')}>
       <View
         style={{
           alignItems: 'center',
-          marginTop: SIZES.height * 0.04,
+          marginTop: SIZES.height * 0.05,
           maxHeight: 50,
         }}>
-        {/* <Image
+        <Image
           style={{
             width: 100,
             maxHeight: 50,
             resizeMode: 'contain',
           }}
           source={images.logo}
-        /> */}
+        />
+        <Text style={styles.title1}>Cinnamon Diseases</Text>
       </View>
-      <LinearGradient
-        colors={['transparent', COLORS.black, COLORS.black]}
+      <View
+       
         style={styles.overlay}>
-        <Text style={styles.title1}>
-          "Protect your Palms: Uncovering Coconut Diseases to Preserve Your
-          Paradise."
-        </Text>
-
         <View style={styles.rowNorm}>
           <TouchableOpacity
             onPress={() => navigation.navigate('PlantUpload')}
             style={styles.slide1}>
             <View style={styles.centerFlex}>
-              <Icon name="virus" size={30} color={COLORS.white} />
-              <Text style={styles.text001}>Take Photo</Text>
+              <Text style={styles.text001}>Capture</Text>
             </View>
           </TouchableOpacity>
-        </View><View style={styles.rowNorm}>
+        </View ><View style={styles.rowNorm}>
           <TouchableOpacity
             onPress={() => navigation.navigate('More')}
             style={styles.slide1}>
             <View style={styles.centerFlex}>
-              <Icon name="virus" size={30} color={COLORS.white} />
-              <Text style={styles.text001}>More Details</Text>
+              <Text style={styles.text001}>Support</Text>
             </View>
           </TouchableOpacity>
         </View>
-      </LinearGradient>
+      </View>
     </ImageBackground>
   );
 }
@@ -94,20 +88,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   overlay: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: SIZES.height * 0.6,
-    height: SIZES.height * 0.35,
+    marginTop: SIZES.height * 0.3,
+    height: SIZES.height * 0.3,
     // alignItems: 'center',
   },
   title1: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    // marginTop: SIZES.height * 0.1,
     color: COLORS.white,
-    textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 40,
   },
   rowNorm: {
     flexDirection: 'row',
